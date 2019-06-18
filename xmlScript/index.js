@@ -10,23 +10,24 @@ const userPath = process.argv[2];
 let fileCount = 0;
 
 console.log("Cargando archivos XML a Firebase..");
+// inicializa firebase con un objeto vacio
 database.ref().set({}, () => {
+    // extrae nombres de archivos contenidos en la carpeta indicada por el usuario
     fs.readdir(path.resolve(path.dirname(require.main.filename), userPath), (err, files) => {
         if (err) {
             return console.log(err);
         } else {
-            // console.log(files)
+            // filtra archivos .xml
             xmlFiles = files.filter(file => {
                 return (file.indexOf(".xml") !== -1)
             })
+            // por cada archivo extrae la data y la estructura
             xmlFiles.forEach(file => {
                 fileCount++;
-                // console.log(file)
                 fs.readFile(path.resolve(path.dirname(require.main.filename), userPath, file), (err, data) => {
                     if (err) {
                         console.log(err);
                     } else {
-                        // console.log(data)
                         parser.parseString(data, function (err, result) {
                             if (err) {
                                 console.log(err);
@@ -68,10 +69,11 @@ database.ref().set({}, () => {
 
                                 invoice.fecha = `${date.getDate()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`;
                                 invoice.hora = `${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
-                                // console.log(invoice)
 
+                                //envía el objeto creado a firebase
                                 database.ref().push(invoice, () => {
                                     if (xmlFiles.length === fileCount) {
+                                        // si el objeto enviado es el último, termina el programa
                                         process.exit();
                                     }
                                 })
@@ -84,5 +86,4 @@ database.ref().set({}, () => {
         }
 
     })
-    // process.exit();
 })

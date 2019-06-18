@@ -26,7 +26,7 @@ To achieve the above stated one must:
 2. If you don't already have [Node](https://nodejs.org/en/) installed in you computer, download it and install it. 
 3. Open the Terminal in the main proyect folder and run `npm install`.
 4. Run the following command line `node .\xmlScript\index.js ../invoices`
-> This command line executes the program (.\xmlScript\index.js) and tells it to scan the following folder (../invoices), **RELATIVE PATH from the folder the program is located in, in this case the xmlScript folder**. You could also tell the program to run on a different path, and it would scan the XML files it find, but those files would have to have the same structure as those provided for this proyect. 
+> This command line executes the program (.\xmlScript\index.js) and tells it to scan the following folder (../invoices), **RELATIVE PATH from the folder the program is located in, in this case the xmlScript folder**. You could also tell the program to run on a different path, and it would scan the XML files in it, but those files **would have to have the same structure as those provided for this proyect** (see below). 
 
 ## Second, to display the data in the browser:
 

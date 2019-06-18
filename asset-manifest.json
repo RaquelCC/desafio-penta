@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/desafio-penta/static/css/main.2cce8147.chunk.css",
+    "main.js": "/desafio-penta/static/js/main.613b9ddf.chunk.js",
+    "main.js.map": "/desafio-penta/static/js/main.613b9ddf.chunk.js.map",
+    "runtime~main.js": "/desafio-penta/static/js/runtime~main.b3772cf0.js",
+    "runtime~main.js.map": "/desafio-penta/static/js/runtime~main.b3772cf0.js.map",
+    "static/js/2.448e30e7.chunk.js": "/desafio-penta/static/js/2.448e30e7.chunk.js",
+    "static/js/2.448e30e7.chunk.js.map": "/desafio-penta/static/js/2.448e30e7.chunk.js.map",
+    "index.html": "/desafio-penta/index.html",
+    "precache-manifest.a685f2664e57b3d42448a08bcf6ff4b6.js": "/desafio-penta/precache-manifest.a685f2664e57b3d42448a08bcf6ff4b6.js",
+    "service-worker.js": "/desafio-penta/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/desafio-penta/static/css/main.2cce8147.chunk.css.map"
+  }
+}

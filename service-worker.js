@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/desafio-penta/precache-manifest.a685f2664e57b3d42448a08bcf6ff4b6.js"
+  "/desafio-penta/precache-manifest.021e4ba1031a12fa0dc04a96b8288eb1.js"
 );
 
 self.addEventListener('message', (event) => {

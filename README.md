@@ -18,7 +18,7 @@ This proyects consists of two different sides to the software.
 
 ## First, obtaining information about the invoices:
 
-To get information about the invoices one must run a specific script that scans a specific folder and extracts the information of the XML files it finds, *given that they follow a certain structure, indicated at the end of this README*, it then constructs and object with the information and uploads it to Firebase (google's database), where it can then be accessed by the Front-End side of this app.
+To get information about the invoices one must run a specific script that scans a specific folder and extracts the information of the XML files it finds, *given that they follow a certain structure, indicated at the end of this README*, it then constructs an object with the information and uploads it to Firebase (google's database), where it can then be accessed by the Front-End side of this app.
 
 To achieve the above stated one must:
 
@@ -26,7 +26,7 @@ To achieve the above stated one must:
 2. If you don't already have [Node](https://nodejs.org/en/) installed in you computer, download it and install it. 
 3. Open the Terminal in the main proyect folder and run `npm install`.
 4. Run the following command line `node .\xmlScript\index.js ../invoices`
-> This command line executes the program (.\xmlScript\index.js) and tells it to scan the following folder (../invoices), **RELATIVE PATH from the folder the program is located in, in this case the xmlScript folder**. You could also tell the program to run on a different path, and it would scan the XML files it find, but those fileswould have to have the same structure as those provided for this proyect. 
+> This command line executes the program (.\xmlScript\index.js) and tells it to scan the following folder (../invoices), **RELATIVE PATH from the folder the program is located in, in this case the xmlScript folder**. You could also tell the program to run on a different path, and it would scan the XML files it find, but those files would have to have the same structure as those provided for this proyect. 
 
 ## Second, to display the data in the browser:
 
@@ -46,7 +46,8 @@ You have two choices:
 ```
 <?xml version="1.0" encoding="utf-8"?> 
 <dte emision="1559347200" tipo="factura" folio="1"> 
-<emisor rut="111.111-6" razonSocial=“Company A" /> <receptor rut="222.222-1" razonSocial=“Company B" /> <items> 
+<emisor rut="111.111-6" razonSocial=“Company A" /> <receptor rut="222.222-1" razonSocial=“Company B" />
+<items> 
 <detalle monto="100" iva="19">Service </detalle> 
 </items> 
 </dte> 

@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ABOUT THIS PROYECT
 
-## Available Scripts
+This proyect was developed in order to comply with the following *User Story*:
 
-In the project directory, you can run:
+> As a company executive, I want to see a list of all the invoices I have sent to my customers ordered by emission dates descending, so that I have a clear understanding of my accounts receivable.
 
-### `npm start`
+### TECHNOLOGIES USED.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To complete this proyect the following technologies were used:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- NodeJS, to create the script that scans XML files and and converts it to objects then uploaded to Firebase.
+- JavaScript and React, to create the Front-End application that sorts and displays the information.
+- Firebase, as the database that enables communication between the two processes.
 
-### `npm test`
+# INSTALLATION AND USAGE
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This proyects consists of two different sides to the software.
 
-### `npm run build`
+## First, obtaining information about the invoices:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get information about the invoices one must run a specific script that scans a specific folder and extracts the information of the XML files it finds, *given that they follow a certain structure, indicated at the end of this README*, it then constructs and object with the information and uploads it to Firebase (google's database), where it can then be accessed by the Front-End side of this app.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+To achieve the above stated one must:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Download/Clone this repository.
+2. If you don't already have [Node](https://nodejs.org/en/) installed in you computer, download it and install it. 
+3. Open the Terminal in the main proyect folder and run `npm install`.
+4. Run the following command line `node .\xmlScript\index.js ../invoices`
+> This command line executes the program (.\xmlScript\index.js) and tells it to scan the following folder (../invoices), **RELATIVE PATH from the folder the program is located in, in this case the xmlScript folder**. You could also tell the program to run on a different path, and it would scan the XML files it find, but those fileswould have to have the same structure as those provided for this proyect. 
 
-### `npm run eject`
+## Second, to display the data in the browser:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You have two choices:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Open the Terminal in the main proyect folder.
+2. Run `npm start`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-OR-
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Click the following [link](https://raquelcc.github.io/desafio-penta).
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# XML STRUCTURE OF FILES
 
-### Code Splitting
+```
+<?xml version="1.0" encoding="utf-8"?> 
+<dte emision="1559347200" tipo="factura" folio="1"> 
+<emisor rut="111.111-6" razonSocial=“Company A" /> <receptor rut="222.222-1" razonSocial=“Company B" /> <items> 
+<detalle monto="100" iva="19">Service </detalle> 
+</items> 
+</dte> 
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
